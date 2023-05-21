@@ -1,10 +1,15 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
-import { styled } from "styled-components";
-
+import styled from "styled-components";
+import { ultra } from "../responsive";
+// ${ultra({})}
 const Container = styled.div`
   height: 60px;
+  ${ultra({
+    height: "120px",
+    fontSize: "32px",
+  })}
 `;
 
 const Wrapper = styled.div`
@@ -12,6 +17,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${ultra({ padding: "30px 40px" })}
 `;
 
 const Left = styled.div`
@@ -23,6 +29,7 @@ const Left = styled.div`
 const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
+  ${ultra({ fontSize: "32px" })}
 `;
 
 const SearchContainer = styled.div`
@@ -31,10 +38,19 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  font-size: 12px;
+  ${ultra({
+    border: "3px solid lightgray",
+    marginLeft: "10px",
+    width: "275px",
+    padding: "10px",
+    fontSize: "32px",
+  })}
 `;
 
 const Input = styled.input`
   border: none;
+  ${ultra({ flex: "9" })}
 `;
 
 const Center = styled.div`
@@ -64,7 +80,7 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
             <Input></Input>
-            <Search style={{ color: "red", fontSize: 16 }}></Search>
+            <Search style={{ color: "red" }}></Search>
           </SearchContainer>
         </Left>
         <Center>
