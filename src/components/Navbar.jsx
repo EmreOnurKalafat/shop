@@ -74,7 +74,7 @@ const Navbar = () => {
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGN IN</MenuItem>
           <MenuItem>
-            <Badge badgeContent={10} color="primary">
+            <Badge badgeContent={10} color="error">
               <ShoppingCartOutlined color="action" />
             </Badge>
           </MenuItem>
