@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../device";
 import {
   Facebook,
   Instagram,
@@ -11,14 +12,31 @@ import {
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 
-const Logo = styled.h1``;
+const Logo = styled.h1`
+  text-align: center;
+  @media ${device.tablet} {
+    text-align: left;
+  }
+`;
 const Desc = styled.p`
   margin: 20px 0px;
+  text-align: center;
+  @media ${device.tablet} {
+    text-align: left;
+  }
 `;
 const SocialContainer = styled.div`
   display: flex;
+  text-align: center;
+  @media ${device.tablet} {
+    text-align: left;
+  }
 `;
 const SocialIcons = styled.div`
   width: 40px;
@@ -44,6 +62,10 @@ const Center = styled.div`
 `;
 const Title = styled.h3`
   margin-bottom: 30px;
+  text-align: center;
+  @media ${device.tablet} {
+    text-align: left;
+  }
 `;
 const List = styled.ul`
   margin: 0;
@@ -51,10 +73,24 @@ const List = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
+  @media ${device.tablet} {
+    text-align: left;
+  }
 `;
 const ListItem = styled.li`
   width: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  @media ${device.tablet} {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  @media ${device.laptop} {
+    text-align: left;
+    font-size: 16px;
+  }
 `;
 const Right = styled.div`
   flex: 1;
@@ -65,9 +101,17 @@ const ContactItem = styled.div`
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  @media ${device.tablet} {
+    justify-content: start;
+  }
 `;
 const Payment = styled.img`
   width: 50%;
+  padding: 0% 25%;
+  @media ${device.tablet} {
+    padding: 0% 0%;
+  }
 `;
 const Footer = () => {
   return (

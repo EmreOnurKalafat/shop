@@ -2,14 +2,17 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import { styled } from "styled-components";
 import { sliderItems } from "../data";
+import { device } from "../device";
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-
   position: relative;
   overflow: hidden;
+  @media ${device.tablet} {
+    height: auto;
+  }
 `;
 
 const Arrow = styled.div`
@@ -42,15 +45,25 @@ const Slide = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   align-items: center;
   background-color: #${(props) => props.bg};
+  @media ${device.tablet} {
+    height: auto;
+    flex: 1 1 auto;
+    flex-direction: row;
+  }
 `;
 const ImageContainer = styled.div`
   height: 100%;
   flex: 1;
 `;
 const Image = styled.img`
-  height: 80%;
+  height: 40vh;
+  @media ${device.tablet} {
+    height: 60vh;
+  }
 `;
 const InfoContainer = styled.div`
   flex: 1;
@@ -59,14 +72,21 @@ const InfoContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 70px;
+  font-size: 32px;
+  @media ${device.tablet} {
+    font-size: 60px;
+  }
 `;
 const Descripon = styled.p`
-  margin: 50px 0px;
-  font-size: 20px;
+  margin: 20px 0px;
+  font-size: small;
   font-weight: 500;
   letter-spacing: 3px;
   text-align: start;
+  @media ${device.tablet} {
+    margin: 50px 0px;
+    font-size: medium;
+  }
 `;
 const Button = styled.button`
   padding: 10px;

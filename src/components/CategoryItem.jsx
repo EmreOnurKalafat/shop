@@ -1,10 +1,17 @@
 import styled from "styled-components";
+import { device } from "../device";
 
 const Container = styled.div`
   flex: 1;
   margin: 3px;
-  height: 70vh;
+  height: 30vh;
   position: relative;
+  @media ${device.mobileM} {
+    height: 40vh;
+  }
+  @media ${device.tablet} {
+    height: 70vh;
+  }
 `;
 const Image = styled.img`
   width: 100%;
@@ -25,7 +32,13 @@ const Info = styled.div`
 const Tittle = styled.h1`
   color: white;
   margin-bottom: 20px;
-  font-size: 40px;
+  font-size: 10px;
+  @media ${device.tablet} {
+    font-size: 30px;
+  }
+  @media ${device.laptop} {
+    font-size: 40px;
+  }
 `;
 const Button = styled.button`
   border: none;

@@ -1,32 +1,57 @@
 import styled from "styled-components";
+import { device } from "../src/device";
 import Navbar from "../src/components/Navbar";
 import Announcement from "../src/components/Announcement";
 import Products from "../src/components/Products";
 import Newsletter from "../src/components/Newsletter";
 import Footer from "../src/components/Footer";
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const Title = styled.h1`
-  margin: 20px;
+  text-align: center;
+  @media ${device.tablet} {
+    text-align: left;
+    margin-left: 20px;
+  }
 `;
 const FilterContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
 `;
 const Filter = styled.div`
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0px;
+  @media ${device.tablet} {
+    text-align: left;
+    flex-direction: row;
+    margin: 20px;
+  }
 `;
 
 const FilterText = styled.span`
+  margin-top: 20px;
   font-style: 20px;
   font-weight: 600;
   margin-right: 20px;
 `;
 
 const Select = styled.select`
+  margin-top: 10px;
   padding: 10px;
-  margin-right: 20px;
+  margin-right: 0px;
   font-weight: 600;
+  @media ${device.tablet} {
+    margin-right: 20px;
+  }
 `;
 const Option = styled.option``;
 

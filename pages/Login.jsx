@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../src/device";
 
 const Container = styled.div`
   width: 100vw;
@@ -15,9 +16,18 @@ const Container = styled.div`
   text-align: center;
 `;
 const Wrapper = styled.div`
-  width: 20%;
+  width: 70%;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
+  @media ${device.tablet} {
+    width: 40%;
+  }
+  @media ${device.laptop} {
+    width: 25%;
+  }
+  @media ${device.desktopL} {
+    width: 15%;
+  }
 `;
 const Title = styled.h1`
   font-size: 24px;

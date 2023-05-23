@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../src/device";
 import Navbar from "../src/components/Navbar";
 import Announcement from "../src/components/Announcement";
 import Footer from "../src/components/Footer";
@@ -16,7 +17,12 @@ const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 5px;
+  flex-direction: column;
+  @media ${device.tablet} {
+    padding: 20px;
+    flex-direction: row;
+  }
 `;
 const TopButton = styled.button`
   padding: 10px;
@@ -36,6 +42,10 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 const Info = styled.div`
   flex: 3;
@@ -43,13 +53,29 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: start;
+    text-align: left;
+  }
 `;
 const Image = styled.img`
   width: 200px;
+  margin-left: 15%;
+  @media ${device.tablet} {
+    margin-left: 0%;
+  }
 `;
 const Details = styled.div`
   padding: 20px;
@@ -63,8 +89,12 @@ const ProductId = styled.span``;
 const ProductColor = styled.div`
   width: 20px;
   height: 20px;
+  margin: auto;
   border-radius: 50%;
   background-color: ${(props) => props.color};
+  @media ${device.tablet} {
+    margin: 0;
+  }
 `;
 
 const ProductType = styled.span``;
@@ -103,6 +133,18 @@ const Summary = styled.div`
   border-radius: 10px;
   padding: 20px;
   height: 50vh;
+  @media ${device.tablet} {
+    height: 60vh;
+  }
+  @media ${device.laptop} {
+    height: 55vh;
+  }
+  @media ${device.laptopL} {
+    height: 40vh;
+  }
+  @media ${device.desktop} {
+    height: 25vh;
+  }
 `;
 const SummaryTitle = styled.h1`
   font-weight: 200;

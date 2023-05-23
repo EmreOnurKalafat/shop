@@ -4,23 +4,59 @@ import Announcement from "../src/components/Announcement";
 import Newsletter from "../src/components/Newsletter";
 import Footer from "../src/components/Footer";
 import { Add, Remove } from "@material-ui/icons";
+import { device } from "../src/device";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
-  padding: 50px;
+  padding: 10px;
   display: flex;
+  flex-direction: column;
+  height: auto;
+  @media ${device.mobileL} {
+    padding: 20px;
+  }
+  @media ${device.tablet} {
+    padding: 50px;
+  }
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
 `;
 const ImgContainer = styled.div`
   flex: 1;
+  margin: auto;
+  @media ${device.laptop} {
+    margin: 0;
+  }
 `;
 const Image = styled.img`
   width: 100%;
-  height: 120vh;
+  height: 50vh;
   object-fit: cover;
+  @media ${device.tablet} {
+    height: 80vh;
+  }
+  @media ${device.laptopL} {
+    height: 90vh;
+  }
 `;
 const InfoContainer = styled.div`
+  display: flex;
   flex: 1;
-  padding: 0px 50px;
+  padding: 0px 1px;
+  flex-direction: column;
+  text-align: center;
+  @media ${device.mobileL} {
+    padding: 0px 30px;
+  }
+  @media ${device.tablet} {
+    padding: 0px 50px;
+    text-align: left;
+  }
+  @media ${device.laptopL} {
+    display: inline;
+    flex-direction: row;
+  }
 `;
 const Title = styled.h1`
   font-weight: 200;
@@ -39,13 +75,24 @@ const FilterContainer = styled.div`
   flex: 1;
   justify-content: space-between;
   flex-direction: column;
-  text-align: center;
 `;
 const Filter = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
+  flex-direction: column;
   margin: 20px 0px 10px 0px;
+  &:nth-child(1) {
+    flex-direction: row;
+    padding: 0px 40px;
+  }
+  @media ${device.tablet} {
+    &:nth-child(1) {
+      flex-direction: row;
+      padding: 0px 0px;
+    }
+    flex-direction: row;
+  }
 `;
 const FilterTitle = styled.span`
   font-size: 20px;
@@ -54,11 +101,12 @@ const FilterTitle = styled.span`
   flex: 4;
 `;
 const FilterColor = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
   border-radius: 100%;
   background-color: ${(props) => props.color};
-  margin-left: 20px;
+  margin-left: 10px;
   cursor: pointer;
 `;
 const FilterType = styled.select`
@@ -86,8 +134,12 @@ const AddContainer = styled.div`
   margin-top: 20px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 const AmountContainer = styled.div`
   display: flex;
@@ -95,7 +147,10 @@ const AmountContainer = styled.div`
   justify-content: flex-end;
   font-weight: 700;
   flex: 5;
-  margin-right: 10%;
+  margin-right: 0%;
+  @media ${device.tablet} {
+    margin-right: 10%;
+  }
 `;
 const Amount = styled.span`
   width: 30px;
@@ -115,11 +170,15 @@ const Button = styled.button`
   cursor: pointer;
   transition: 0.5s ease;
   flex: 1;
+  margin-top: 10px;
 
   &:hover {
     background-color: rgba(255, 0, 0, 0.9);
     color: white;
     border: 2px solid rgba(255, 0, 0, 0.1);
+  }
+  @media ${device.tablet} {
+    margin-top: 0px;
   }
 `;
 

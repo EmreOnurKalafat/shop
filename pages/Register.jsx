@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../src/device";
 
 const Container = styled.div`
   width: 100vw;
@@ -15,9 +16,17 @@ const Container = styled.div`
   text-align: center;
 `;
 const Wrapper = styled.div`
-  width: 25%;
+  width: 75%;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
+  @media ${device.tablet} {
+    width: 40%;
+    padding: 20px;
+  }
+  @media ${device.laptop} {
+    width: 30%;
+    padding: 20px;
+  }
 `;
 const Title = styled.h1`
   font-size: 24px;
@@ -32,9 +41,12 @@ const Form = styled.form`
 `;
 const Input = styled.input`
   display: flex;
-  width: 50%;
+  width: 80%;
   margin-top: 10px;
   padding: 7px;
+  @media ${device.tablet} {
+    width: 60%;
+  }
 `;
 const Agreement = styled.span`
   width: 60%;

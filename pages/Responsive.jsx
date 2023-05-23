@@ -2,7 +2,7 @@ import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { device } from "../device";
+import { device } from "../src/device";
 
 const Container = styled.div`
   width: 100%;
@@ -23,9 +23,6 @@ const Container = styled.div`
   @media ${device.mobileS} {
     height: auto;
   }
-  @media screen and (max-width: 320px) {
-    height: auto;
-  }
 `;
 
 const Wrapper = styled.div`
@@ -37,12 +34,15 @@ const Wrapper = styled.div`
   text-align: center;
   align-content: center;
   align-items: center;
-
-  @media screen and (max-width: 320px) {
+  @media ${device.mobileS} {
     visibility: hidden;
     display: none;
   }
-  @media ${device.mobileS} {
+  @media ${device.mobileM} {
+    visibility: hidden;
+    display: none;
+  }
+  @media ${device.mobileL} {
     visibility: hidden;
     display: none;
   }
@@ -163,7 +163,7 @@ const WrapperMobile = styled.div`
   padding: 10px 20px;
   display: flex;
   flex: 1;
-  justify-content: ${({ open }) => (open ? "space-around" : "space-between")};
+  justify-content: space-between;
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -177,9 +177,9 @@ const OpenButon = styled.div`
   width: 2rem;
   height: 2rem;
   display: flex;
+
   justify-content: space-around;
   flex-flow: column nowrap;
-
   div {
     width: 2rem;
     height: 0.25rem;
@@ -203,13 +203,6 @@ const OpenButon = styled.div`
 
 const MobileLogo = styled.h1`
   display: flex;
-  padding: 0% 0vh;
-  @media ${device.mobileM} {
-    padding: 0% 0vh;
-  }
-  @media ${device.mobileL} {
-    padding: 0% 22.5%;
-  }
 `;
 const MobileCard = styled.div`
   display: flex;
@@ -222,7 +215,7 @@ const MobileCard = styled.div`
 const MobileMenu = styled.div`
   display: ${({ open }) => (open ? "flex" : "none")};
   visibility: ${({ open }) => (open ? "visible" : "hide")};
-  flex-grow: 2;
+  flex-grow: 1;
   flex-direction: column;
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.1);
@@ -250,7 +243,7 @@ const ListItem = styled.li`
     color: red;
   }
 `;
-const Navbar = () => {
+const Responsive = () => {
   const [open, setOpen] = useState(false);
   return (
     <Container>
@@ -291,7 +284,7 @@ const Navbar = () => {
             <ShoppingCartOutlined color="black" fontSize="inherit" />
           </Badge>
         </MobileCard>
-        <MobileMenu open={open}>
+        <MobileMenu open={open} onClick={() => setOpen(!open)}>
           <Title>MENU</Title>
           <List>
             <ListItem>SIGN IN</ListItem>
@@ -315,4 +308,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Responsive;
